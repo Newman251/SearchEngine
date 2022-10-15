@@ -1,42 +1,32 @@
-# lucene-cranfield-collection
+# Assignment 1
 
-Assignment from my Master's module "Information Retrieval and Web Search" where I index the Cranfield Collection and evaluate different performance metrics with trec eval.
+Luke Newman 
+ID: 18327357
 
-## Prerequisites
+# Build the project
 
-Install and make [trec_eval](https://github.com/usnistgov/trec_eval)
+Navigate to the 'work' folder and build the project using the command:
 
-## RECOMMENDED: Run the Entire Thing
-First navigate to the *assignment-1/* directory.
-There is a run.sh file that will build and execute the program which will print out the trec eval results afterwards.
+mvn package
 
-```bash run.sh```
+# Create the index and select the desired scoring method
 
----
+Choose a scoring method: vsm / bm25 / boolean, then execute the project using the command:
 
-## Build
-This will have the effect of installing all prerequisite packages e.g. lucene 8.6.2
+java -jar target/assignment-1-1.0-SNAPSHOT.jar
 
-```mvn package```
+Followed by the scoring method, for example:
 
-## Create Index with Standard Analyzer and Vector Space Model Scoring
+java -jar target/assignment-1-1.0-SNAPSHOT.jar vsm
 
-```java -jar target/assignment-1-1.0-SNAPSHOT.jar <analyzer> <similarity>```
+Results will then be stored in the QueryResults folder
 
-analyzer: `standard`,`english`, or `whitespace`
+# Trec Eval
 
-similarity: '`vsm`' with `bm25`
+Then for running trec_eval to get scoring results, navigate to the trec_eval folder and run the command:
 
-### Example with StandardAnalyzer & Vector Space Model
-```java -jar target/assignment-1-1.0-SNAPSHOT.jar standard vsm```
+make
 
-## Trec Eval
-```trec_eval -m runid -m map -m gm_map -m P.5 ../corpus/QRelsCorrectedforTRECeval results/StandardAnalyzerVSM.test```
+Then run trec_eval as well as the relevant docs with the results file, in this case:
 
-We can replace the .test file with others from results/ directory
-
-## Additional Info
-corpus/
-- cran.all - The documents
-- cran.qry - The queries
-- QRelsCorrectedforTRECeval - The relevance assesments (adjusted)
+./trec_eval ../corpus/QRelsCorrectedforTRECeval ../QueryResults/Scores.vsm
