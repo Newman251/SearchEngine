@@ -13,11 +13,11 @@ mvn package
 
 Choose a scoring method: vsm / bm25 / boolean, then execute the project using the command:
 
-java -jar target/assignment-1-1.0-SNAPSHOT.jar
+java -jar target/search-1.0.jar
 
 Followed by the scoring method, for example:
 
-java -jar target/assignment-1-1.0-SNAPSHOT.jar vsm
+java -jar target/search-1.0.jar vsm
 
 Results will then be stored in the QueryResults folder
 
