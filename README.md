@@ -23,7 +23,11 @@ Results will then be stored in the QueryResults folder
 
 # Trec Eval
 
-Then for running trec_eval to get scoring results, navigate to the trec_eval folder and run the command:
+Then for running trec_eval to get scoring results, go back to the work folder and clone the repository using:
+
+git clone https://github.com/usnistgov/trec_eval.git
+
+Then navigate to the trec_eval folder and run the command
 
 make
 
